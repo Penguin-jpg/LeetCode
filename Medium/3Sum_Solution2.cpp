@@ -2,8 +2,8 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         /*
-            參考的方法
-            使用Two Pointers，複雜度O(n^2)
+            參考的做法
+            使用Two Pointers，複雜度:O(n^2)
         */
         int len=nums.size();
         vector<vector<int>> ans;
@@ -16,14 +16,10 @@ public:
         
         int j=0;
         int k=0;
-        int need=0;
-        vector<int> temp;
+        int target=0;
         
         //排序
         sort(nums.begin(),nums.begin()+len);
-        
-        //配置記憶體空間
-        temp.reserve(3);
         
         //鎖定第一個數，從這個數後面找出與它相加為0的兩個數
         for(int i=0;i<len-2;i++)
@@ -32,7 +28,7 @@ public:
             if(i==0||(i>0&&nums[i]!=nums[i-1]))
             {
                 //還需要(0-nums[i])來組成0
-                need=0-nums[i];
+                target=0-nums[i];
                 
                 /*
                     Two pointers
@@ -43,13 +39,9 @@ public:
             
                 while(j<k)
                 {
-                    if(nums[j]+nums[k]==need)
+                    if(nums[j]+nums[k]==target)
                     {
-                        temp.emplace_back(nums[i]);
-                        temp.emplace_back(nums[j]);
-                        temp.emplace_back(nums[k]);
-                        ans.push_back(temp);
-                        temp.clear();
+                        ans.push_back({nums[i],nums[j],nums[k]});
                         //跳過重複元素
                         while(j<k&&nums[j]==nums[j+1])
                         {
@@ -61,7 +53,7 @@ public:
                         }
                         j++;
                         k--;
-                    }else if(nums[j]+nums[k]>need)
+                    }else if(nums[j]+nums[k]>target)
                     {
                         k--;
                     }else
