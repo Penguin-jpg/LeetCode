@@ -12,47 +12,44 @@ class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         /*
-            參考的方法2
-            使用Dummy node，操作指向dummy的指標，將l1和l2比較後接上，最後回傳再透過dummy->next取得答案
+            參考的做法1
+            使用Iterative方法，先取出較小的list作為開頭，再透過此list的下個節點與另一個list做比較，以達到排序的效果
         */
-        //其中一個為NULL，就回傳另一個list
-        if(!l1)
+        //取非NULL的list
+        ListNode *head=l1!=NULL?l1:l2;
+        
+        //其中之一為NULL，就回傳非NULL的
+        if(l1==NULL||l2==NULL)
         {
-            return l2;
-        }else if(!l2)
-        {
-            return l1;
+            return head;
         }
         
-        //Dummy Node
-        ListNode *dummy=new ListNode();
-        ListNode *current=dummy;
+        //另一個list
+        ListNode *other=l2;
         
-        //比較大小後，將較小的接在後面
-        while(l1&&l2)
+        //找出先後順序
+        if(head->val>other->val)
         {
-            if(l1->val<=l2->val)
+            head=other;
+            other=l1;
+        }
+        
+        //排序
+        ListNode *current=head;
+        while(current!=NULL&&other!=NULL)
+        {
+            //current仍然比other小
+            if(current->next!=NULL&&current->next->val<other->val)
             {
-                current->next=l1;
-                l1=l1->next;
-            }else
+                current=current->next;
+            }else//current->next的val比other大
             {
-                current->next=l2;
-                l2=l2->next;
+                ListNode *temp=current->next;
+                current->next=other;
+                current=other;
+                other=temp;
             }
-            current=current->next;
         }
-        
-        //將剩下的list街上
-        if(l1)
-        {
-            current->next=l1;
-        }else
-        {
-            current->next=l2;
-        }
-        
-        //從開頭的下一個開始才是所求的list
-        return dummy->next;
+        return head;
     }
 };
