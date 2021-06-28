@@ -2,7 +2,7 @@ class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
         /*
-            我的方法2:
+            我的方法2
             時間複雜度O(n)、空間複雜度O(n)
         */
 
