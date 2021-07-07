@@ -12,7 +12,7 @@ public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {      
         /*
             參考的方法
-            時間複雜度O(n)、空間複雜度O(log(n))
+            時間複雜度O(n)、空間複雜度O(n)
             分成3種情況:
             1. p、q分別在左右子樹，則LCA為root
             2. p、q都在左子樹，則LCA在左子樹(p或q其中一個)
