@@ -3,7 +3,7 @@ public:
     uint32_t reverseBits(uint32_t n) {
         /*
             我的方法1
-            時間複雜度O(m)(m:bit數量)、空間複雜度(m)
+            時間複雜度O(1)(bit數量固定)、空間複雜度(1)
             利用bitset轉字串後再反轉，最後轉回整數
         */
 

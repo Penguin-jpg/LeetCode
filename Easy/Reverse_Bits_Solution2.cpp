@@ -3,7 +3,7 @@ public:
     uint32_t reverseBits(uint32_t n) {
         /*
             我的方法2
-            時間複雜度O(m)(m:bit數量)、空間複雜度(1)
+            時間複雜度O(1)(bit數量固定)、空間複雜度(1)
             利用bitset，看第i個和第(31-i)個bit分別是0還是1，然後交換兩者
         */
 

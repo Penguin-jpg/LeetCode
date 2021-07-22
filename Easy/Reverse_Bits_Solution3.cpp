@@ -3,7 +3,7 @@ public:
     uint32_t reverseBits(uint32_t n) {
         /*
             參考的方法
-            時間複雜度O(m)(m:bit數量)、空間複雜度O(1)
+            時間複雜度O(1)(bit長度固定)、空間複雜度O(1)
             每次都將n目前最右邊的位元丟到result，而result每次都要做左移，空出新的位置放位元
 
             例子:
