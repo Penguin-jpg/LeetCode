@@ -13,7 +13,8 @@ public:
     ListNode* reverseList(ListNode* head) {
         /*
             我的方法
-            複雜度O(length of list)，將目前節點的next改接到上一個節點就能完成反轉
+            時間複雜度O(n)、空間複雜度O(1)
+            將目前節點的next改接到上一個節點就能完成反轉
         */
 
         //如果為NULL，就直接回傳head

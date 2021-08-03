@@ -12,8 +12,9 @@ class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
         /*
-            我的方法改良版
-            複雜度O(n)，在進入迴圈時直接做temp=current->next，
+            參考的方法1
+            時間複雜度O(n)、空間複雜度O(1)
+            方法1的改良版，在進入迴圈時直接做temp=current->next，
             並將條件改成current!=NULL，可以不用額外將最後一次額外做，
             最後直接回傳previous，不用重新指派head
         */
