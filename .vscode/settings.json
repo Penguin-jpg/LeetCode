@@ -6,6 +6,7 @@
     "**/requirements{/**,*}.{txt,in}": "pip-requirements",
     "*.module": "php",
     "vector": "cpp",
-    "utility": "cpp"
+    "utility": "cpp",
+    "xutility": "cpp"
   }
 }
